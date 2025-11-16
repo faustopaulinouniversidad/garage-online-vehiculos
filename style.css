@@ -1,0 +1,223 @@
+:root {
+  --primary-color: #0d6efd;
+  --dark-color: #111827;
+  --light-bg: #f3f4f6;
+  --card-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+  --card-shadow-hover: 0 16px 30px rgba(15, 23, 42, 0.2);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #ffffff;
+  color: #111827;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Compensa la navbar fija */
+body {
+  padding-top: 72px;
+}
+
+/* Enlace de salto visible solo al enfocar (A11y) */
+.visually-hidden-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.visually-hidden-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+}
+
+/* HERO HEADER */
+.header-hero {
+  width: 100%;
+  height: 50vh;
+  min-height: 260px;
+  background-image: url("https://t4.ftcdn.net/jpg/02/82/00/75/360_F_282007508_wdCUP7hUMNK1Cuzj7XmOcFmzyzJ0Nnp9.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.header-hero-overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.65),
+    rgba(15, 23, 42, 0.9)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: var(--dark-color) !important;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.nav-link {
+  font-weight: 500;
+}
+
+.nav-link.active,
+.nav-link:focus,
+.nav-link:hover {
+  color: #e5e7eb !important;
+}
+
+/* SECCIONES */
+main {
+  flex: 1;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+/* TARJETAS DE PRODUCTO */
+.product-card {
+  box-shadow: var(--card-shadow);
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-img-wrapper {
+  height: 200px;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  font-size: 1rem;
+  font-weight: 600;
+  min-height: 3rem; /* hasta dos líneas aprox */
+  max-height: 3rem;
+  overflow: hidden;
+}
+
+.card-category {
+  font-size: 0.85rem;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* descripción/categoría en una línea */
+}
+
+.card-type {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.card-price {
+  font-size: 1rem;
+}
+
+/* Botones */
+.btn-primary,
+.btn-success,
+.btn-outline-primary {
+  border-radius: 999px;
+}
+
+/* SPINNER */
+#loadingSpinner .spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* FOOTER */
+footer {
+  font-size: 0.85rem;
+}
+
+/* CARRITO: imagen pequeña */
+.cart-item-image {
+  width: 56px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+/* ANIMACIÓN PULSE PARA CONTADOR DEL CARRITO */
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+#cartCount.pulse {
+  animation: pulse 0.3s ease-out;
+}
+
+/* MODAL DETALLE VEHÍCULO */
+.detail-image {
+  max-height: 450px;
+  object-fit: cover;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 576px) {
+  .header-hero {
+    height: 45vh;
+  }
+
+  body {
+    padding-top: 64px;
+  }
+}
